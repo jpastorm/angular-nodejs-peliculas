@@ -8,14 +8,14 @@
 							<div class="form-group">
 								<input type="text" [(ngModel)]="addGenre.gen_title" placeholder="Inserte una descripcion" class="form-control">
 							</div>
-							<button (click)="CreateGender()" class="btn btn-primary">Insertar</button>
+							<button (click)="addGenres()" class="btn btn-primary">Insertar</button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-4 mt-4">
 			<ul class="list-group">
-				<li *ngFor="let genrer of genres" class="list-group-item list-group-item-action">
+				<li *ngFor="let genrer of lstGenres" class="list-group-item list-group-item-action">
 					<span class="badge badge-primary">{{genrer.gen_id}}</span> {{genrer.gen_title}}
 				</li>
 			</ul>

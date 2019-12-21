@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
+import { GenreService } from './services/genre.service'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { PeliculaComponent } from './pelicula/pelicula.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [GenreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
