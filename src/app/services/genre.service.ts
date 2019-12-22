@@ -26,7 +26,7 @@ export class GenreService {
      let params1= new HttpParams().set('userId',"1");
      return this.httpClient.get("url",{params:params1});
    }*/
-   //deleteGenrer():Observable<any>{
-   	//return this.httpClient.get("localhost:3000/genres"+id);
-   //}
+   deleteGenrer(id):Observable<any>{
+   return this.httpClient.delete("http://localhost:3000/genres/"+id);
+   }
 }

@@ -47,6 +47,15 @@ export class CategoriaComponent implements OnInit {
       )
 
   }
+  deleteGenrer(id){
+    console.log("THIS IS A DELETE FUNCTION");
+    this._GenreService.deleteGenrer(id).subscribe(res=>{
+      this.sleep().then(() => this.listgenre());
+    },
+      err=>{
+        console.log(JSON.stringify(err));
+    });
+  }
   //lstgeresporid:Genre[];
 
 

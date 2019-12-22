@@ -15,8 +15,8 @@
 		</div>
 		<div class="col-md-4 mt-4">
 			<ul class="list-group">
-				<li *ngFor="let genrer of lstGenres" class="list-group-item list-group-item-action">
-					<span class="badge badge-primary">{{genrer.gen_id}}</span> {{genrer.gen_title}}
+				<li *ngFor="let genrer of lstGenres" class="list-group-item list-group-item-action d-flex align-items-center">
+					<span class="badge badge-primary">{{genrer.gen_id}}</span> {{genrer.gen_title}}<button (click)="deleteGenrer(genrer.gen_id)" class="btn btn-danger ml-auto">Delete</button>
 				</li>
 			</ul>
 		</div>
