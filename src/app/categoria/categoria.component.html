@@ -11,6 +11,7 @@
 								<input type="text" [(ngModel)]="selectedGenre.gen_title" placeholder="Inserte una descripcion" class="form-control" *ngIf="selectedGenre.gen_id !==0" (blur)="updateGenreId(selectedGenre.gen_id)" (keyup.enter)="updateGenreId(selectedGenre.gen_id)">
 							</div>
 							<button (click)="addGenres()" class="btn btn-primary"  *ngIf="selectedGenre.gen_id ==0">Insertar</button>
+							<button (click)="nuevo()" class="btn btn-primary"  *ngIf="selectedGenre.gen_id !==0">Nuevo</button>
 					</div>
 				</div>
 			</div>
