@@ -20,7 +20,11 @@ export class GenreService {
    	let headers=new HttpHeaders().set('Content-Type','application/json');
    	return this.httpClient.post("http://localhost:3000/genres",json,{ headers:headers });
    }
-
+   updateGenre(id,genrer:Genre){
+      let json=JSON.stringify(genrer);
+    	let headers=new HttpHeaders().set('Content-Type','application/json');
+    	return this.httpClient.put("http://localhost:3000/genres/"+id,json,{ headers:headers });
+   }
    /*
    getGenderByParamameter():Observable<any>{
      let params1= new HttpParams().set('userId',"1");

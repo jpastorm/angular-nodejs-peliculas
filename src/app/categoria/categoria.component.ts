@@ -8,9 +8,6 @@ import { Genre } from '../models/genre.model'
 })
 export class CategoriaComponent implements OnInit {
   lstGenres:Genre[]
-  addGenre:any={
-		gen_title:''
-	}
   constructor(private _GenreService:GenreService){
 
   }
@@ -24,6 +21,10 @@ export class CategoriaComponent implements OnInit {
    await this.delay(1000);
  }
   //objGenre:Genre;
+  selectedGenre:Genre = new Genre();
+  selectgenre(listgenres:Genre){
+    this.selectedGenre=listgenres;
+  }
   listgenre(){
     this._GenreService.getGenrer()
       .subscribe
@@ -36,25 +37,41 @@ export class CategoriaComponent implements OnInit {
       );
     }
   addGenres(){
-    this._GenreService.createGenrer(this.addGenre)
+    this._GenreService.createGenrer(this.selectedGenre)
       .subscribe
       (
         data=>
         {
           this.sleep().then(() => this.listgenre());
-
+          this.selectedGenre=new Genre();
+          console.log("LLEGAMOS AMIGOS");
         }
       )
 
   }
   deleteGenrer(id){
-    console.log("THIS IS A DELETE FUNCTION");
-    this._GenreService.deleteGenrer(id).subscribe(res=>{
-      this.sleep().then(() => this.listgenre());
-    },
-      err=>{
-        console.log(JSON.stringify(err));
-    });
+    if(confirm('Are u sure to delete it?')){
+      console.log("THIS IS A DELETE FUNCTION");
+      this._GenreService.deleteGenrer(id).subscribe(res=>{
+        this.sleep().then(() => this.listgenre());
+      },
+        err=>{
+          console.log(JSON.stringify(err));
+      });
+    }
+
+  }
+  updateGenreId(id){
+    this._GenreService.updateGenre(id,this.selectedGenre)
+      .subscribe
+      (
+        data=>
+        {
+          this.sleep().then(() => this.listgenre());
+          this.selectedGenre=new Genre();
+          console.log("LLEGAMOS a actualizar");
+        }
+      )
   }
   //lstgeresporid:Genre[];
 
